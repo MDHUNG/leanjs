@@ -56,3 +56,19 @@ function chuViHinhVuong (f){
 
 chuViHinhVuong(2);
 
+// tisnh chu vi hình chữ nhật bằng cách tính diện tích tam giác rồi nhấn 2 lên
+
+
+const chuViHinhChuNhata =  (onFinish) => {
+    console.log('chu vi hinh chu nhat la :');
+};
+ 
+const chuViHinhTamGiac =  (a,b) => {
+    return (a + b) /2 ;
+};
+ 
+chuViHinhChuNhata(chuViHinhTamGiac);
+
+
+
+

@@ -86,3 +86,186 @@ function CalculateCircleSquare(r){
 }
  
 CalculateCircleSquare(10);
+
+// object methods
+// object dùng để mô tả các sụ vật hiện tượng, vật thể bằng các thuộc tính của nó
+const myDog = {
+    weight : 5,
+    name : 'lucy',
+    age : 1
+    bark: function (){
+        console.log('ngu ngu',this.name);// this laf đại diện cho myDog thí là là đại diện cho objest
+    }
+    eat: function (bone){
+        this.weight=this.weight + bone.weight;
+        return this;
+    }
+};
+
+const bone = {weight=5}
+
+myDog.eat(bone);
+console.log('after eating',myDog.weight);
+// anonymous function (function ko tên)
+
+myDog.bark()//kết quả ra 'ngu ngu'
+
+
+function bark(){
+    console.log('hihi');
+};
+ 
+function bark(){
+
+};
+
+// function as a parameter (callback)
+// dùng function như một tham số
+
+function sum (a,b){
+    return a + b ;
+
+};
+sum(2,3);
+
+const coffeeMachine = {
+    makeCoffee : function(onFinish){//onFinish gọi là callback, onFinish truyền vào phải là 1 hàm nếu là 1 số sẽ báo lỗi
+        console.log('making coffee...');
+        onFinish();
+    }
+};
+
+const beep =function(){
+    console.log('tít tít ');
+};
+
+coffeeMachine.makeCoffee(beep);
+
+const daySo = [1,2,3,4];
+daySo.map (function(x){ //sau array.map là 1 function
+                        // functiong này sẽ cho các số đi qua và trả ra các sô mới
+    return x * x ;
+});
+
+//array.filter: làm nhiệm vụ lọc ra nhưng phần tử không thỏa mãn điều kiện
+// cú pháp của cả map và filter chỉ cần thay fileter bằng map là xong hai cái này giống nhau
+/*
+syntax
+arr.filter( function(item){
+    //filter
+    return newValue;//true or false//nếu true thì sẽ đc qua nếu false thì ko đc qua
+});
+*/
+const number = [1, 2 , 3 , 4];
+const evenNumbers = number.filter(function(item){
+    return item % 2 === 0;
+});
+evenNumbers;//kết quả sẽ ra [2,4] vì đk là chia hết cho 2 và dư 0
+
+const number1 =[1, 2 , 3 , 4];
+const evenNumbers1 = number1.filter(function(item){
+    return item % 2 === 1;
+});
+evenNumbers1;//lúc này kết quả sẽ ra là[1,3]vì đk là chia hết cho 2 và dư 1
+
+/*
+arr.find//là lọc cái phần tử qua cái đk nếu mà true thì cái arr.find này sẽ dừng lại và trả lại 1 giá trị chứ ko trả lại 1 mảng như là map và filter
+cú pháp:
+arr.find(fuction(item){
+    return x;//true ỏr false
+});
+*/
+
+const daySoMoi = [1, 2, 3, 4];
+daySoMoi.find(function(item){
+    return item % 2 ===0;
+});
+
+// khi đó kết quả trả về là 2 vì đk là chia hết cho 2 và dư 0 khi đến 2 giá trị đã trả lại true
+
+const daySoCho = [1, 2, 3,4];
+daySoCho.reduce(function(a, b){
+    return a + b ;//tính tổng của dãy số trên
+});//kết quả trả lại là 10
+// các bước làm của hàm reduce này :
+// 1 + 2 =3 lấy số thứ nhật cộng với số thứ 2 và lấy kết quả số thứ 2 để cộng với sôs thứ 3 cứ thế đến hết mảng 
+// 3 + 3 =6
+// 6 + 4 =10
+
+//cú pháp :
+/* 
+arr.reduce(function(item1,item2){
+    //calcultion
+    return x ;
+},init);// init là tham số thứ hai được lắp vào vị đầu tiên đo là item 1 và item 2 là vị vị tri đầu tiên của mảng
+*/
+
+
+const item = ['tom' , 'bill' , 'kim'] ;
+item.reduce (function(item1,item2){
+    return '<' + item + '>';
+}) ;
+
+item.map (function(x){
+    return '<' + x + '>' ;
+});
+
+
+item.map((x)=>{
+    return x + '>'
+},'<');
+item.join('<');
+
+
+
+
+/*
+
+REACT
+
+ */
+function calculate(a, b) {
+    const add = a + b;
+    const subtract = a - b;
+    const multiply = a * b;
+    const divide = a / b;
+  
+    return [add, subtract, multiply, divide];
+  }
+  
+  const [add, subtract, multiply, divide] = calculate(4, 7);
+  // cho tất cả các biến trong function đấy với giá trị a,b là băng 4,7
+
+  // đây là spread operator
+const myVehicle = {
+  brand: 'Ford',
+  model: 'Mustang',
+  color: 'red'
+}
+
+const updateMyVehicle = {
+  type: 'car',
+  year: 2021, 
+  color: 'yellow'
+}
+
+const myUpdatedVehicle = {...myVehicle, ...updateMyVehicle}
+// khí dùng như thế này {...myVehicle, ...updateMyVehicle} sẽ gán các giá trị lại thành 1 object cái sau sẽ đựoc thau thế bằng cái trước nếu như nó cùng element
+
+
+/*ternary operator
+Syntax(cú pháp): condition ? <expression if true> : <expression if false>
+khi dùng if/else
+
+if (authenticated) {
+  renderApp();
+} else {
+  renderLogin();
+}
+
+khi dùng ternary
+
+authenticated ? renderApp() : renderLogin();
+
+
+*/
