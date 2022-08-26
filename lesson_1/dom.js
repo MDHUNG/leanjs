@@ -104,7 +104,7 @@ inputElementcheck.onchange = function(e) {
 
 // event listener
 
-var btn = document.getElementById('btn');
+// var btn = document.getElementById('btn');
 /* cách sử dụng DOM event
 setTimeout(function(){
   btn.onclick = function(e) {
@@ -114,20 +114,20 @@ setTimeout(function(){
   };
 },5000) */
 
-function viec1() {
-  console.log('viec 1');
-}
+// function viec1() {
+//   console.log('viec 1');
+// }
 
-function viec2() {
-  console.log('viec 2');
-}
+// function viec2() {
+//   console.log('viec 2');
+// }
 
-function viec3() {
-  console.log('viec 3');
-}
+// function viec3() {
+//   console.log('viec 3');
+// }
 
-btn.addEventListener('click',viec1);
-btn.addEventListener('click',viec2);
-btn.addEventListener('click',viec3);
+// btn.addEventListener('click',viec1);
+// btn.addEventListener('click',viec2);
+// btn.addEventListener('click',viec3);
 
-btn.removeEventListener('click',viec2)
+// btn.removeEventListener('click',viec2)
